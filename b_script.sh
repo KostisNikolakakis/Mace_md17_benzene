@@ -1,0 +1,31 @@
+python3 ./mace/scripts/run_train.py \
+  --name="benzene" \
+    --train_file="benzene_old_dft.xyz" \
+    --valid_fraction=0.05 \
+    --E0s="average" \
+    --model="MACE" \
+    --num_interactions=2 \
+    --num_channels=64 \
+    --max_L=0 \
+    --correlation=3 \
+    --r_max=6.0 \
+    --forces_weight=1000 \
+    --energy_weight=10 \
+    --energy_key="TotEnergy" \
+    --forces_key="force" \
+    --batch_size=2 \
+    --valid_batch_size=4 \
+    --max_num_epochs=800 \
+    --start_swa=400 \
+    --scheduler_patience=15 \
+    --patience=30 \
+    --eval_interval=4 \
+    --ema \
+    --swa \
+    --error_table='PerAtomMAE' \
+    --default_dtype="float64"\
+    --device=cuda \
+    --seed=123 \
+    --restart_latest \
+    --save_cpu \
+
